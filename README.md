@@ -8,14 +8,30 @@ Sync command:
 ./tools/sync_report_sdk.sh
 ```
 
+Publish command:
+
+```bash
+./tools/publish_sdk.sh report
+```
+
+This command runs sync, smoke-check, creates a commit for `sdk/report` if the snapshot changed, and then pushes the SDK to the `report_sdk` remote with `git subtree`.
+
 The command rebuilds:
 
 - `sdk/report/include/ReportServerInterface.h`
 - `sdk/report/include/Structures.h`
-- `sdk/report/include/structures/*`
+- `sdk/report/include/model/*`
 - `sdk/report/include/rapidjson/*`
 
 The SDK is intentionally read-only and report-oriented. It does not export the full plugin mutation surface.
+
+Read-only report contract:
+
+- trade reads and calculations use `ReportTradeRecord`
+- account, margin, and equity reads use `ReportAccountRecord`, `ReportMarginLevel`, and `ReportEquityRecord`
+- symbol and group reads use `ReportSymbolRecord` and `ReportGroupRecord`
+- log and candle reads use `ReportServerLog` and `ReportCandleRecord`
+- internal project `structures/*.hpp` are no longer the public report contract
 
 Example:
 
@@ -26,6 +42,7 @@ Notes:
 - Public headers are synced directly from the product tree. Do not edit `sdk/report/include/*` manually.
 - RapidJSON is exported under `sdk/report/include/rapidjson`, and public headers use `#include <rapidjson/...>`.
 - Consumer include path should point to `sdk/report/include`.
+- `sdk_contract/report/*` is the canonical source for the exported report contracts; `sdk/report/include/model/*` is the synced snapshot.
 
 Smoke-check:
 
