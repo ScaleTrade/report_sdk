@@ -27,6 +27,9 @@ The SDK is intentionally read-only and report-oriented. It does not export the f
 
 Read-only report contract:
 
+- `ReportServerInterface` is an abstract host interface, not a concrete runtime class
+- report modules must not construct or store `ReportServerInterface` by value
+- the host creates the runtime implementation and passes it to report entry points as `ReportServerInterface*`
 - trade reads and calculations use `ReportTradeRecord`
 - account, margin, and equity reads use `ReportAccountRecord`, `ReportMarginLevel`, and `ReportEquityRecord`
 - symbol and group reads use `ReportSymbolRecord` and `ReportGroupRecord`
