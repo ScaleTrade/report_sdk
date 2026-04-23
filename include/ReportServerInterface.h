@@ -6,12 +6,12 @@
 #include <vector>
 
 #include "Structures.h"
-#include "model/ReportAccount.hpp"
-#include "model/ReportCandle.hpp"
-#include "model/ReportGroup.hpp"
-#include "model/ReportLog.hpp"
-#include "model/ReportSymbol.hpp"
-#include "model/ReportTrade.hpp"
+#include "sdk_contract/report/ReportAccount.hpp"
+#include "sdk_contract/report/ReportCandle.hpp"
+#include "sdk_contract/report/ReportGroup.hpp"
+#include "sdk_contract/report/ReportLog.hpp"
+#include "sdk_contract/report/ReportSymbol.hpp"
+#include "sdk_contract/report/ReportTrade.hpp"
 
 class Core;
 
