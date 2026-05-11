@@ -33,6 +33,7 @@ Read-only report contract:
 - trade reads and calculations use `ReportTradeRecord`
 - account, margin, and equity reads use `ReportAccountRecord`, `ReportMarginLevel`, and `ReportEquityRecord`
 - symbol and group reads use `ReportSymbolRecord` and `ReportGroupRecord`
+- `ReportGroupRecord::partial_close` mirrors the server group setting for partial-close permission; `0` means partial close is disabled for the group, non-zero means enabled
 - log and candle reads use `ReportServerLog` and `ReportCandleRecord`
 - internal project `structures/*.hpp` are no longer the public report contract
 
