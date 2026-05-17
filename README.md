@@ -34,6 +34,7 @@ Read-only report contract:
 - account, margin, and equity reads use `ReportAccountRecord`, `ReportMarginLevel`, and `ReportEquityRecord`
 - symbol and group reads use `ReportSymbolRecord` and `ReportGroupRecord`
 - `ReportGroupRecord::partial_close` mirrors the server group setting for partial-close permission; `0` means partial close is disabled for the group, non-zero means enabled
+- `ReportGroupRecord::allow_sl_tp_slippage` mirrors the server group setting for SL/TP execution; `1` allows market-price slippage after SL/TP trigger, `0` closes exactly at the configured SL/TP level
 - log and candle reads use `ReportServerLog` and `ReportCandleRecord`
 - internal project `structures/*.hpp` are no longer the public report contract
 
