@@ -43,6 +43,9 @@ struct ReportGroupRecordMargin {
 struct ReportGroupRecord {
     int grp_index = 0;
     std::string group;
+    std::string brand;
+    int account_mode = 1;
+    int public_opening = 0;
     int enable = 0;
     int timeout = 0;
     int otp_mode = 0;
