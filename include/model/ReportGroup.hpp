@@ -3,6 +3,14 @@
 #include <string>
 #include <unordered_map>
 
+enum ReportBonusUsagePolicy {
+    REPORT_BONUS_USAGE_NONE = 0,
+    REPORT_BONUS_USAGE_AS_TRADING_EQUITY = 1 << 0,
+    REPORT_BONUS_USAGE_ALLOW_CONVERSION = 1 << 1,
+    REPORT_BONUS_USAGE_ALLOW_REVOKE_WITH_OPEN_POSITIONS = 1 << 2,
+    REPORT_BONUS_USAGE_DEFAULT = 7
+};
+
 struct ReportGroupRecordSec {
     int sec_index = 0;
     int show = 0;
@@ -68,6 +76,7 @@ struct ReportGroupRecord {
     double credit = 0.0;
     int credit_withdrawal_policy = 0;
     double withdrawal_margin_reserve = 0.0;
+    int bonus_usage_policy = 7;
     int margin_call = 0;
     int margin_mode = 1;
     int margin_stopout = 0;
