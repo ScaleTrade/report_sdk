@@ -31,6 +31,7 @@ Read-only report contract:
 - report modules must not construct or store `ReportServerInterface` by value
 - the host creates the runtime implementation and passes it to report entry points as `ReportServerInterface*`
 - report modules must export `extern "C" int GetReportApiVersion()` and return `ReportServerInterface::GetApiVersion()`
+- the loader requires an exact ABI match; reports built for an older or newer ABI are rejected before `CreateReport()` is called
 - trade reads and calculations use `ReportTradeRecord`
 - account, margin, and equity reads use `ReportAccountRecord`, `ReportMarginLevel`, and `ReportEquityRecord`
 - symbol and group reads use `ReportSymbolRecord` and `ReportGroupRecord`
