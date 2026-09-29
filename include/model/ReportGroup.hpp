@@ -102,5 +102,6 @@ struct ReportGroupRecord {
     unsigned int news_languages[8] = {0, 0, 0, 0, 0, 0, 0, 0};
     unsigned int news_languages_total = 0;
     int deposit_reversal_policy = 0;
-    int reserved[15] = {};
+    int stopout_close_policy = 0;
+    int reserved[14] = {};
 };
